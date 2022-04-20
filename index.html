@@ -74,16 +74,10 @@
     // For each row in data, create a marker and add it to the map
     // For each row, columns `Latitude`, `Longitude`, and `Title` are required
     for (var i in data) {
-      var row = data[i];
-
-      
-      var redPin = L.icon({
-	      iconURL: '/pin.png',
-	      iconSize: [25, 25]
-      });
+      var row = data[i];     
+	    
       var marker = L.marker([row.New_Lat, row.New_Long], {
-	      opacity: 1,
-	      icon: redPin
+	      opacity: 1
       }).bindPopup(row.Title);      
       markers.addLayer(marker);
      

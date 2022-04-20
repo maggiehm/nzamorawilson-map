@@ -68,12 +68,9 @@
   // Read markers data from data.csv
   $.get('./data_jittered.csv', function(csvString) {
 	  
-  // Add clusters, I hope
-    var markers = L.markerClusterGroup();
-
     // Use PapaParse to convert string to array of objects
     var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
-
+    var markerClusters = L.markerClusterGroup();
     // For each row in data, create a marker and add it to the map
     // For each row, columns `Latitude`, `Longitude`, and `Title` are required
     for (var i in data) {
@@ -82,6 +79,7 @@
       var marker = L.marker([row.New_Lat, row.New_Long], {
         opacity: 1
       }).bindPopup(row.Title);
+      markerClusters.addLayer(m);
       
       marker.addTo(map);
     }

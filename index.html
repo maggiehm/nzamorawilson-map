@@ -65,13 +65,12 @@
   }); // EDIT - insert or remove ".addTo(map)" before last semicolon to display by default
   controlLayers.addBaseLayer(terrain, 'Stamen Terrain basemap');
 
-  var markerClusters = L.markerClusterGroup();
-
   // Read markers data from data.csv
   $.get('./data_jittered.csv', function(csvString) {
 	  
     // Use PapaParse to convert string to array of objects
     var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;
+    var markers = L.markerClusterGroup();
     // For each row in data, create a marker and add it to the map
     // For each row, columns `Latitude`, `Longitude`, and `Title` are required
     for (var i in data) {
@@ -80,11 +79,10 @@
       var marker = L.marker([row.New_Lat, row.New_Long], {
 	      opacity: 1
       }).bindPopup(row.Title);      
-      marker.addTo(map);
-      markerClusters.addLayer(marker);
+      markers.addLayer(marker);
      
     }
-  map.addLayer(markerClusters);
+  map.addLayer(markers);
 
   });
 

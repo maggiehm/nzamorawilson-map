@@ -76,8 +76,14 @@
     for (var i in data) {
       var row = data[i];
 
+      
+      var redPin = L.icon({
+	      iconURL: '/pin.png',
+	      iconSize: [25, 25]
+      });
       var marker = L.marker([row.New_Lat, row.New_Long], {
-	      opacity: 1
+	      opacity: 1,
+	      icon: redPin
       }).bindPopup(row.Title);      
       markers.addLayer(marker);
      

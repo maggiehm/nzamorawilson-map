@@ -80,10 +80,10 @@
       var marker = L.marker([row.New_Lat, row.New_Long], {
         opacity: 1
       }).bindPopup(row.Title);
-      markerClusters.addLayer(m);
-      
-      marker.addTo(map);
+      markerClusters.addLayer(marker);
+     
     }
+  map.addLayer(markerClusters);
 
   });
 

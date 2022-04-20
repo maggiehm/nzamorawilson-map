@@ -69,7 +69,7 @@
 
   var redPin = L.icon({
 	  iconURL: '/pin.png',
-	  iconSize: [25, 56]
+	  iconSize: [25, 25]
   });
 
   // Read markers data from data.csv
@@ -82,9 +82,7 @@
     for (var i in data) {
       var row = data[i];
 
-      var marker = L.marker([row.New_Lat, row.New_Long], {
-	      icon: redPin
-              }).bindPopup(row.Title);      
+      var marker = L.marker([row.New_Lat, row.New_Long], {icon: redPin}).bindPopup(row.Title);      
       marker.addTo(map);
       markerClusters.addLayer(marker);
      

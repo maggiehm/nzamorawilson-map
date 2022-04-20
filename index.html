@@ -64,12 +64,12 @@
     attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
   }); // EDIT - insert or remove ".addTo(map)" before last semicolon to display by default
   controlLayers.addBaseLayer(terrain, 'Stamen Terrain basemap');
-    
-    // Add clusters, I hope
-    var markers = L.markerClusterGroup();
 
   // Read markers data from data.csv
   $.get('./data_jittered.csv', function(csvString) {
+	  
+  // Add clusters, I hope
+    var markers = L.markerClusterGroup();
 
     // Use PapaParse to convert string to array of objects
     var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;

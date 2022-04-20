@@ -79,7 +79,8 @@
 
       var marker = L.marker([row.New_Lat, row.New_Long], {
         opacity: 1
-      }).bindPopup(row.Title);
+      }).bindPopup(row.Title);      
+      marker.addTo(map);
       markerClusters.addLayer(marker);
      
     }
